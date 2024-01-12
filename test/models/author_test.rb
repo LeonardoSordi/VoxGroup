@@ -3,17 +3,22 @@ require 'minitest/autorun'
 
 class AuthorTest < ActiveSupport::TestCase
 
-  def test_author_articles_count
+  def setup
+    @author = Author.create(name: "Test", surname: "Author", age: 40)
+    Article.create(title: "testTitle 1", body: "test body for article ", author_id: @author.id, status: "public" )
+  end
 
-    author = Author.create(name: "Test", surname: "Author", age: 40)
-    assert author.articles_count == 0
-    puts(author.inspect)
-    article = Article.create(title: "testTitle", body: "test body for article", author_id: author.id, status: "public" )
-    puts(article.inspect)
-    assert author.articles_count == 1
-    author.destroy
-    article.destroy
 
+  test 'count' do
+    assert_equal 1, @author.articles_count
+    Article.create(title: "testTitle 2", body: "test body for article 2", author_id: @author.id, status: "public" )
+    assert_equal 2, @author.articles_count
+  end
+
+  test 'clean_all_my_articles' do
+    @author.clean_all_my_articles
+
+    assert_equal 0, @author.articles_count
   end
 
 end
