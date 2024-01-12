@@ -21,4 +21,11 @@ class AuthorTest < ActiveSupport::TestCase
     assert_equal 0, @author.articles_count
   end
 
+  test 'validate_name' do
+    author2 = Author.new(name: "antonio")
+
+    assert author2.valid?
+
+  end
+
 end

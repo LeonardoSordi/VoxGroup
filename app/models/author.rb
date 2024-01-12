@@ -2,6 +2,9 @@ class Author < ApplicationRecord
 
   has_many :articles
 
+  validates :name, presence: true
+  validates :surname, presence: true
+
   def articles_count
     self.articles.count
   end
