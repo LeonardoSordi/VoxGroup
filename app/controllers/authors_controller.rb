@@ -3,7 +3,11 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
+    if params[:key] != "" and params[:key] != nil
     @authors = Author.all
+
+    end
+
   end
 
   # GET /authors/1 or /authors/1.json
@@ -67,6 +71,6 @@ class AuthorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def author_params
-      params.require(:author).permit(:name, :surname, :age)
+      params.require(:author).permit(:name, :surname, :age, :key)
     end
 end

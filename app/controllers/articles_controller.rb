@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
 
   #R - Read
   def index
+
     @articles = Article.all
   end
 

@@ -2,7 +2,7 @@ require "test_helper"
 
 class AuthorsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @author = Author.create(name: "Test", surname: "Author", age: 40)
+    @author = Author.create(name: "Test", surname: "Author", age: 40, key: "90uif4394fn")
     @integer = 3
     puts @integer
     @integer += 1
@@ -11,6 +11,14 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get authors_url, as: :json
     assert_response :success
+  end
+
+  test "author must have key to get authors index" do
+
+    get authors_url(@author), as: :json
+
+    assert_response :success
+
   end
 
   test "should create author" do
