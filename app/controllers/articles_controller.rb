@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :set_article, only: %i[ show edit update destroy ]
 
+
   #C - Create
   def new
     @article = Article.new
@@ -29,8 +30,8 @@ class ArticlesController < ApplicationController
 
   #R - Read
   def index
-
     @articles = Article.all
+    render json: {articles: @articles}, status: 200
   end
 
   def show
@@ -79,6 +80,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @author_key = @article.author.key
   end
+
+
+
 
   private
     def article_params

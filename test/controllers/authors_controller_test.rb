@@ -11,6 +11,9 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get authors_url, as: :json
+    assert_response :forbidden
+
+    get authors_url, params: {key: "chiave"}, as: :json
     assert_response :success
   end
 

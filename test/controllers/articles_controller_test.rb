@@ -28,6 +28,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     #assertions
     assert_equal(@article_from_author_with_key.title, new_title)
     assert_not_equal(@article_from_author_without_key.title, new_title)
+
   end
 
 
@@ -38,6 +39,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     delete article_url(@article_from_author_without_key), as: :json
     assert_response :forbidden
+
   end
 
   test "create article checks author key" do
@@ -51,6 +53,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     post articles_url, params: {article: new_article_from_author_without_key}, as: :json
     assert_response :forbidden
+
   end
 
 end

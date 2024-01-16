@@ -1,16 +1,14 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show edit update destroy ]
-
+  before_action :check_key, only: [ :index ]
   def authenticate_author(author)
 
   end
 
   # GET /authors or /authors.json
   def index
-
     @authors = Author.all
-
-
+    render json: {articles: @articles}, status: 200
   end
 
   # GET /authors/1 or /authors/1.json
@@ -71,6 +69,12 @@ class AuthorsController < ApplicationController
     def set_author
       @author = Author.find(params[:id])
     end
+
+  def check_key
+    unless params[:key].present?
+      render json: {}, status: :forbidden
+    end
+  end
 
     # Only allow a list of trusted parameters through.
     def author_params
