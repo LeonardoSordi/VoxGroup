@@ -3,6 +3,7 @@ require "test_helper"
 class AuthorsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @author = Author.create(name: "Test", surname: "Author", age: 40, key: "90uif4394fn")
+    @author_no_key = Author.create(name: "Test no key", surname: "Author", age: 40)
     @integer = 3
     puts @integer
     @integer += 1
@@ -15,8 +16,14 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
 
   test "author must have key to get authors index" do
 
-    get authors_url(@author), as: :json
+    get authors_url, as: :json
+    assert_response :success
 
+  end
+
+  test "show author only if it has key" do
+
+    get authors_url
     assert_response :success
 
   end

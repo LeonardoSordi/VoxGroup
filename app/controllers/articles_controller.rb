@@ -1,17 +1,28 @@
 class ArticlesController < ApplicationController
 
+  before_action :set_article, only: %i[ show edit update destroy ]
+
   #C - Create
   def new
     @article = Article.new
   end
 
   def create
-    @article = Article.new(article_params)
+    #new article
+    @new_article = Article.new(article_params)
+    @author_key_new_article = @new_article.author.key
 
-    if @article.save
-      redirect_to @article
+    #check authentication
+    if @author_key_new_article!="" and @author_key_new_article!=nil
+      #check if saved
+      if @new_article.save
+        render json: @new_article.errors, status: :created
+      else
+        render json: @new_article.errors, status: :unprocessable_entity
+      end
+
     else
-      render :new, status: :unprocessable_entity
+      render json: { errors: @new_article.errors.full_messages }, status: :forbidden
     end
   end
 
@@ -28,24 +39,45 @@ class ArticlesController < ApplicationController
 
   #U . Update
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
+    if @author_key!="" and @author_key!=nil
 
-    if @article.update(article_params)
-      redirect_to @article
+      respond_to do |format|
+        if @article.update(article_params)
+          format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+          format.json { render :show, status: :ok, location: @article}
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
+      end
+
     else
-      render :edit, status: :unprocessable_entity
+      render json: { errors: @article.errors.full_messages }, status: :forbidden
     end
+
   end
   #D - Destroy
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
 
-    redirect_to root_path, status: :see_other
+    if @author_key!="" and @author_key!=nil
+    @article.destroy!
+    respond_to do |format|
+      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+      format.json { head :no_content }
+    end
+    else
+      render json: { errors: @article.errors.full_messages }, status: :forbidden
+    end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+    @author_key = @article.author.key
   end
 
   private

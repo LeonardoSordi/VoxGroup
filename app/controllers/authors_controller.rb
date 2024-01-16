@@ -1,12 +1,15 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show edit update destroy ]
 
+  def authenticate_author(author)
+
+  end
+
   # GET /authors or /authors.json
   def index
-    if params[:key] != "" and params[:key] != nil
+
     @authors = Author.all
 
-    end
 
   end
 
