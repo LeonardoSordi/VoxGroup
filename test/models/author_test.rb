@@ -31,4 +31,12 @@ class AuthorTest < ActiveSupport::TestCase
     assert @author_no_key.key.present?
   end
 
+  test'check key not change on update' do
+    a = Author.create(name: "Ciao", surname: "Ciao", age: 43)
+    current_key = a.key.dup
+    a.update(name: "Hello")
+
+    assert_equal current_key, a.key
+  end
+
 end

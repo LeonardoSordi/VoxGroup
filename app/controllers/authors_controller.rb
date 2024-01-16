@@ -44,6 +44,11 @@ class AuthorsController < ApplicationController
 
   # PATCH/PUT /authors/1 or /authors/1.json
   def update
+
+    if @author.key != author_params[:key] && author_params[:name].present?
+      render json: {}, status: :bad_request
+
+    else
     respond_to do |format|
       if @author.update(author_params)
         format.html { redirect_to author_url(@author), notice: "Author was successfully updated." }
@@ -52,6 +57,7 @@ class AuthorsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @author.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 

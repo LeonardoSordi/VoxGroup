@@ -1,6 +1,6 @@
 class Author < ApplicationRecord
 
-  before_save :generate_key
+  before_create  :generate_key
 
   has_many :articles
 

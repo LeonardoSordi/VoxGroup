@@ -62,19 +62,40 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-
+  #UPDATE
   test "should update author" do
-
     patch author_url(@author), params: { author: { age: 36  } }, as: :json
-
     @author.reload
-
     puts @author.inspect
-
     assert_response :success
     assert @author.age == 36
   end
 
+  #UPDATE
+  test "update author name having right key"  do
+    new_name = "new name"
+    patch author_url(@author), params: { author: { name: new_name, key: @author.key  } }, as: :json
+    @author.reload
+    assert_equal @author.name, new_name
+  end
+
+  #UPDATE
+  test "update author name having wrong key"  do
+    new_name = "new name"
+    patch author_url(@author), params: { author: { name: new_name, key: "wrongkey666"  } }, as: :json
+    @author.reload
+    assert_response :bad_request
+  end
+
+  #UPDATE
+  test "update author name not having key"  do
+    new_name = "new name"
+    patch author_url(@author), params: { author: { name: new_name } }, as: :json
+    @author.reload
+    assert_response :bad_request
+  end
+
+  #DESTROY
   test "should destroy author" do
     assert_difference("Author.count", -1) do
       delete author_url(@author), as: :json
