@@ -71,7 +71,7 @@ class AuthorsController < ApplicationController
     end
 
   def check_key
-    unless params[:key].present?
+    unless params[:key].present? && params[:key]=="chiave0000"
       render json: {}, status: :forbidden
     end
   end

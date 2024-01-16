@@ -13,7 +13,10 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
     get authors_url, as: :json
     assert_response :forbidden
 
-    get authors_url, params: {key: "chiave"}, as: :json
+    get authors_url, params: {key: "chiave12345678"}, as: :json
+    assert_response :forbidden
+
+    get authors_url, params: {key: "chiave0000"}, as: :json
     assert_response :success
   end
 
