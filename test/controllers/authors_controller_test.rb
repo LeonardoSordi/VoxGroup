@@ -9,23 +9,21 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
     @integer += 1
   end
 
-  test "should get index" do
+  test "index key is not present" do
     get authors_url, as: :json
     assert_response :forbidden
+  end
 
+  test "index key is wrong" do
     get authors_url, params: {key: "chiave12345678"}, as: :json
     assert_response :forbidden
+  end
 
+  test "index key is ok" do
     get authors_url, params: {key: "chiave0000"}, as: :json
     assert_response :success
   end
 
-  test "author must have key to get authors index" do
-
-    get authors_url, as: :json
-    assert_response :success
-
-  end
 
   test "show author only if it has key" do
 
