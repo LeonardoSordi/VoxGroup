@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show edit update destroy ]
-  before_action :check_key, only: [ :index ]
+  before_action :check_key, only: [ :index, :show ]
   def authenticate_author(author)
 
   end
@@ -8,11 +8,13 @@ class AuthorsController < ApplicationController
   # GET /authors or /authors.json
   def index
     @authors = Author.all
-    render json: {articles: @articles}, status: 200
+    render json: {authors: @authors}, status: 200
   end
 
   # GET /authors/1 or /authors/1.json
   def show
+    @author = Author.find(params[:id])
+    render json: {author: @author}, status: 200
   end
 
   # GET /authors/new

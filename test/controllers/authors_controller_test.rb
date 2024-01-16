@@ -25,13 +25,6 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   end
 
 
-  test "show author only if it has key" do
-
-    get authors_url
-    assert_response :success
-
-  end
-
   test "should create author" do
     assert_difference("Author.count") do
       post authors_url, params: { author: { name: "antonio", surname: "rossi", age: 35 } }, as: :json
@@ -40,10 +33,23 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should show author" do
+  test "show author key is not present" do
     get author_url(@author), as: :json
+    assert_response :forbidden
+  end
+
+
+  test "show author key is wrong" do
+    get author_url(@author), params: {key: "chiave12345"}, as: :json
+    assert_response :forbidden
+  end
+
+
+  test "show author key is ok" do
+    get author_url(@author),  params: {key: "chiave0000"}, as: :json
     assert_response :success
   end
+
 
 
   # Non esistono i file edit.json.jbuilder e _form.json.jbuilder che creano il file JSON per la risposta alla chiamata
