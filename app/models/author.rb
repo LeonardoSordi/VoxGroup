@@ -1,5 +1,7 @@
 class Author < ApplicationRecord
 
+  before_save :generate_key
+
   has_many :articles
 
   validates :name, presence: true
@@ -13,4 +15,11 @@ class Author < ApplicationRecord
     self.articles.delete_all
   end
 
+  def generate_key
+    @author_key = Array.new(20){[*"A".."Z", *"0".."9"].sample}.join
+    while Author.find_by(key: @author_key).present? do
+      @author_key = Array.new(20){[*"A".."Z", *"0".."9"].sample}.join
+    end
+    self.key = @author_key
+  end
 end

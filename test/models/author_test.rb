@@ -5,7 +5,8 @@ class AuthorTest < ActiveSupport::TestCase
 
   def setup
     @author = Author.create(name: "Test", surname: "Author", age: 40)
-    Article.create(title: "testTitle 1", body: "test body for article ", author_id: @author.id, status: "public" )
+    @author_no_key = Author.create(name: "Test no key", surname: "Author", age: 40)
+    @article = Article.create(title: "testTitle 1", body: "test body for article ", author_id: @author.id, status: "public" )
   end
 
 
@@ -23,9 +24,11 @@ class AuthorTest < ActiveSupport::TestCase
 
   test 'validate_name' do
     author2 = Author.new(name: "antonio")
-
     assert author2.valid?
+  end
 
+  test "key is generated on creation" do
+    assert @author_no_key.key.present?
   end
 
 end
