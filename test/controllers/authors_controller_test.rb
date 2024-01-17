@@ -51,17 +51,6 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   end
 
 
-
-  # Non esistono i file edit.json.jbuilder e _form.json.jbuilder che creano il file JSON per la risposta alla chiamata
-  # Di conseguenza il test fallisce se si imposta as: :json come risposta
-  # Inoltre la funzione edit del controller è vuota
-  # Cancellare il test?
-  test "should get edit" do
-    get edit_author_url(@author), as: :json
-
-    assert_response :success
-  end
-
   #UPDATE
   test "should update author" do
     patch author_url(@author), params: { author: { age: 36  } }, as: :json

@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show edit update destroy ]
   before_action :check_key, only: [ :index, :show ]
+  before_action :check_key_is_valid, only: [:destroy, :update]
   def authenticate_author(author)
 
   end
@@ -17,10 +18,6 @@ class AuthorsController < ApplicationController
     render json: {author: @author}, status: 200
   end
 
-  # GET /authors/new
-  def new
-    @author = Author.new
-  end
 
   # GET /authors/1/edit
   def edit
@@ -45,10 +42,6 @@ class AuthorsController < ApplicationController
   # PATCH/PUT /authors/1 or /authors/1.json
   def update
 
-    if @author.key != author_params[:key] && author_params[:name].present?
-      render json: {}, status: :bad_request
-
-    else
     respond_to do |format|
       if @author.update(author_params)
         format.html { redirect_to author_url(@author), notice: "Author was successfully updated." }
@@ -79,7 +72,13 @@ class AuthorsController < ApplicationController
     end
 
   def check_key
-    unless params[:key].present? && params[:key]=="chiave0000"
+    unless params[:key].present?
+      render json: {}, status: :forbidden
+    end
+  end
+  
+  def check_key_is_valid
+    unless params[:key].present? && params[:key] == @author.key
       render json: {}, status: :forbidden
     end
   end
