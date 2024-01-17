@@ -1,7 +1,9 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_author, only: [:create]
   before_action :check_author_key_is_valid, only: [:create]
+
 
 
   #C - Create
@@ -9,19 +11,19 @@ class ArticlesController < ApplicationController
   def create
     #new article
     @new_article = Article.new(article_params)
-    @author_key_new_article = @new_article.author.key
+    @new_article.author_id = @author.id
+
 
     #check authentication
-    if @author_key_new_article!="" and @author_key_new_article!=nil
+    if @author.key !="" and @author.key !=nil
       #check if saved
       if @new_article.save
         render json: @new_article.errors, status: :created
       else
         render json: @new_article.errors, status: :unprocessable_entity
       end
-
     else
-      render json: { errors: @new_article.errors.full_messages }, status: :forbidden
+      render json: { errors: @new_article.errors.full_messages }, status: :bad_request
     end
   end
 
@@ -66,11 +68,19 @@ class ArticlesController < ApplicationController
   end
 
   def check_author_key_is_valid
-    if Author.find_by(id: article_params[:author_id]).key != other_params[:author_key]
+    if @author.key != params[:author_key]
       render json: {}, status: :bad_request
     end
   end
 
+
+  def set_author
+    if Author.find_by(key: params[:author_key]).present?
+      @author = Author.find_by(key: params[:author_key])
+    else
+      render json: {}, status: :bad_request
+    end
+  end
 
 
   private
@@ -78,8 +88,4 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :body, :status, :author_id)
     end
 
-  def other_params
-    params.require(:others).permit(:author_key)
-
-  end
 end
