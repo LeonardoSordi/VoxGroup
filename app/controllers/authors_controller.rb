@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show edit update destroy ]
   before_action :check_key, only: [ :index, :show ]
-  before_action :check_key_is_valid, only: [:destroy, :update]
+  before_action :check_key_is_valid, only: [:destroy, :update, :show,]
   def authenticate_author(author)
 
   end
@@ -18,10 +18,6 @@ class AuthorsController < ApplicationController
     render json: {author: @author}, status: 200
   end
 
-
-  # GET /authors/1/edit
-  def edit
-  end
 
   # POST /authors or /authors.json
   def create
@@ -51,13 +47,12 @@ class AuthorsController < ApplicationController
         format.json { render json: @author.errors, status: :unprocessable_entity }
       end
     end
-    end
   end
 
   # DELETE /authors/1 or /authors/1.json
   def destroy
     @author.destroy!
-    
+
     respond_to do |format|
       format.html { redirect_to authors_url, notice: "Author was successfully destroyed." }
       format.json { head :no_content }
@@ -72,14 +67,14 @@ class AuthorsController < ApplicationController
     end
 
   def check_key
-    unless params[:key].present?
-      render json: {}, status: :forbidden
+    unless author_params[:key].present?
+      render json: {}, status: :bad_request
     end
   end
 
   def check_key_is_valid
-    unless params[:key].present? && params[:key] == @author.key
-      render json: {}, status: :forbidden
+    unless author_params[:key].present? && author_params[:key] == @author.key
+      render json: {}, status: :bad_request
     end
   end
 

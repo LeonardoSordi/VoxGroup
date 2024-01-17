@@ -1,12 +1,10 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :check_author_key_is_valid, only: [:create]
 
 
   #C - Create
-  def new
-    @article = Article.new
-  end
 
   def create
     #new article
@@ -34,17 +32,8 @@ class ArticlesController < ApplicationController
     render json: {articles: @articles}, status: 200
   end
 
-  def show
-    @article = Article.find(params[:id]) 
-  end
-
-  #U . Update
-  def edit
-  end
-
+  #U - Update
   def update
-    if @author_key!="" and @author_key!=nil
-
       respond_to do |format|
         if @article.update(article_params)
           format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
@@ -54,11 +43,6 @@ class ArticlesController < ApplicationController
           format.json { render json: @article.errors, status: :unprocessable_entity }
         end
       end
-
-    else
-      render json: { errors: @article.errors.full_messages }, status: :forbidden
-    end
-
   end
   #D - Destroy
   def destroy
@@ -81,6 +65,11 @@ class ArticlesController < ApplicationController
     @author_key = @article.author.key
   end
 
+  def check_author_key_is_valid
+    if Author.find_by(id: article_params[:author_id]).key != other_params[:author_key]
+      render json: {}, status: :bad_request
+    end
+  end
 
 
 
@@ -88,4 +77,9 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :body, :status, :author_id)
     end
+
+  def other_params
+    params.require(:others).permit(:author_key)
+
+  end
 end

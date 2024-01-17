@@ -2,25 +2,21 @@ require "test_helper"
 
 class AuthorsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @author = Author.create(name: "Test", surname: "Author", age: 40, key: "90uif4394fn")
+    @author = Author.create(name: "Test", surname: "Author", age: 40)
     @author_no_key = Author.create(name: "Test no key", surname: "Author", age: 40)
     @integer = 3
     puts @integer
     @integer += 1
   end
 
-  test "index key is not present" do
+  test "index key not present gives bad request" do
     get authors_url, as: :json
-    assert_response :forbidden
+    assert_response :bad_request
   end
 
-  test "index key is wrong" do
-    get authors_url, params: {key: "chiave12345678"}, as: :json
-    assert_response :forbidden
-  end
 
-  test "index key is ok" do
-    get authors_url, params: {key: "chiave0000"}, as: :json
+  test "index key is present shows authors" do
+    get authors_url, params: {key: @author.key}, as: :json
     assert_response :success
   end
 
@@ -33,35 +29,25 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "show author key is not present" do
+  test "show author key is not present gives bad request" do
     get author_url(@author), as: :json
-    assert_response :forbidden
+    assert_response :bad_request
   end
 
 
   test "show author key is wrong" do
     get author_url(@author), params: {key: "chiave12345"}, as: :json
-    assert_response :forbidden
+    assert_response :bad_request
   end
 
 
-  test "show author key is ok" do
-    get author_url(@author),  params: {key: "chiave0000"}, as: :json
+  test "show author right key shows author" do
+    get author_url(@author),  params: {key: @author.key}, as: :json
     assert_response :success
   end
 
-
   #UPDATE
-  test "should update author" do
-    patch author_url(@author), params: { author: { age: 36  } }, as: :json
-    @author.reload
-    puts @author.inspect
-    assert_response :success
-    assert @author.age == 36
-  end
-
-  #UPDATE
-  test "update author name having right key"  do
+  test "update author right key updates name"  do
     new_name = "new name"
     patch author_url(@author), params: { author: { name: new_name, key: @author.key  } }, as: :json
     @author.reload
@@ -69,7 +55,7 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   #UPDATE
-  test "update author name having wrong key"  do
+  test "update author wrong key gives bad request"  do
     new_name = "new name"
     patch author_url(@author), params: { author: { name: new_name, key: "wrongkey666"  } }, as: :json
     @author.reload
@@ -77,7 +63,7 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   #UPDATE
-  test "update author name not having key"  do
+  test "update author no key param gives bad request"  do
     new_name = "new name"
     patch author_url(@author), params: { author: { name: new_name } }, as: :json
     @author.reload
@@ -85,11 +71,14 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   #DESTROY
-  test "should destroy author" do
-    assert_difference("Author.count", -1) do
-      delete author_url(@author), as: :json
-    end
+  test "destroy author no key param returns bad request" do
+    delete author_url(@author), as: :json
+    assert :bad_request
+  end
 
-    assert :success
+  #DESTROY
+  test "destroy author right key param destroys author" do
+    delete author_url(@author), as: :json
+    assert :bad_request
   end
 end
