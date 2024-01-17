@@ -57,6 +57,8 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1 or /authors/1.json
   def destroy
     @author.destroy!
+    
+
 
     respond_to do |format|
       format.html { redirect_to authors_url, notice: "Author was successfully destroyed." }
@@ -76,7 +78,7 @@ class AuthorsController < ApplicationController
       render json: {}, status: :forbidden
     end
   end
-  
+
   def check_key_is_valid
     unless params[:key].present? && params[:key] == @author.key
       render json: {}, status: :forbidden
