@@ -14,4 +14,9 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :forbidden
   end
 
+  test "authors can comment articles" do
+    post article_comments_url(@article), params: {comment: {commenter: @commenter, body: "comment body.", status: "public", article_id: @article.id }}, as: :json
+    assert_response :forbidden
+  end
+
 end
