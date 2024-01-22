@@ -34,9 +34,8 @@ class ArticlesController < ApplicationController
   end
   #D - Destroy
   def destroy
-    @article.destroy!
-    respond_to do |format|
-      format.json { head :no_content }
+    if @article.destroy!
+    render json: {}, status: :no_content
     end
   end
 
@@ -60,4 +59,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :body, :status, :author_id)
     end
-end
+  end
+
