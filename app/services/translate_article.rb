@@ -1,7 +1,7 @@
 class TranslateArticle
 
-  def self.call(from_text)
-    english_text = GoogleApi::Translate.call(from_text, 'it', 'en')
+  def self.call(article_object)
+    english_text = GoogleApi::Translate.call(article_object.body, 'it', 'en')
   end
 
 

@@ -15,7 +15,7 @@ class Article < ApplicationRecord
 
 
   def translate_article
-    TranslateArticle.call(self.body)
+    TranslateArticle.call(self)
   end
 
 end
