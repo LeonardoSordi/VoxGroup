@@ -11,4 +11,11 @@ class Article < ApplicationRecord
 
   belongs_to :author
 
+  after_create :translate_article
+
+
+  def translate_article
+    TranslateArticle.call(self.body)
+  end
+
 end
