@@ -14,11 +14,6 @@ class AuthorsController < ApplicationController
     render json: {authors: @authors}, status: :ok
   end
 
-  # GET /authors/1 or /authors/1.json
-  def show
-    @author = Author.find(params[:id])
-    render json: {author: @author}, status: :ok
-  end
 
 
   # POST /authors or /authors.json
@@ -27,24 +22,29 @@ class AuthorsController < ApplicationController
 
       if @author.save
 
-        render json: {location: @author}, status: :created
+        render json: {author: @author}, status: :created
       else
 
-        render json: {}, status: :unprocessable_entity
+        render json: {error: "author not saved"}, status: :unprocessable_entity
 
       end
-    end
+  end
+
+  # GET /authors/1 or /authors/1.json
+  def show
+    render json: {author: @author}, status: :ok
+  end
+
 
   # PATCH/PUT /authors/1 or /authors/1.json
   def update
 
-
       if @author.update(author_params)
 
-        render json: {location: @author}, status: :ok
+        render json: {author: @author}, status: :ok
 
       else
-        render json: {}, status: :unprocessable_entity
+        render json: {error: "author could not be updated"}, status: :unprocessable_entity
       end
     end
 
@@ -52,7 +52,9 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1 or /authors/1.json
   def destroy
     if @author.destroy!
-    render json: {}, status: :no_content
+    render json: {message: "author destroyed"}, status: :no_content
+    else
+      render json: {errors: "could not destroy author"}, status: :internal_server_error
     end
   end
 
@@ -67,14 +69,14 @@ class AuthorsController < ApplicationController
 
   def check_key
     unless author_params[:key].present?
-      render json: {}, status: :bad_request
+      render json: {error: "bad request error"}, status: :bad_request
     end
   end
 
   def check_key_is_valid
 
     unless author_params[:key].present? && author_params[:key] == @author.key
-      render json: {}, status: :bad_request
+      render json: {error: "bad request error"}, status: :bad_request
     end
   end
 

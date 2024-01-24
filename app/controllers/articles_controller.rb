@@ -11,12 +11,18 @@ class ArticlesController < ApplicationController
     @new_article.author_id = @author.id
       #check if saved
       if @new_article.save
-        render json: @new_article.errors, status: :created
+        render json: {article: @new_article}, status: :created
       else
         render json: @new_article.errors, status: :unprocessable_entity
       end
 
   end
+
+  # GET /authors/1 or /authors/1.json
+  def show
+    render json: {article: @article}, status: :ok
+  end
+
 
   #R - Read
   def index
@@ -35,7 +41,9 @@ class ArticlesController < ApplicationController
   #D - Destroy
   def destroy
     if @article.destroy!
-    render json: {}, status: :no_content
+    render json: {message: "article destroyed"}, status: :no_content
+    else
+      render json: {error: "could not destroy article"}, status: :internal_server_error
     end
   end
 
@@ -44,6 +52,9 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
     @author_key = @article.author.key
+    if @article == nil
+      render json: {error: "could not set article"}, status: :internal_server_error
+    end
   end
 
 
@@ -51,7 +62,7 @@ class ArticlesController < ApplicationController
     if Author.find_by(key: params[:author_key]).present?
       @author = Author.find_by(key: params[:author_key])
     else
-      render json: {}, status: :bad_request
+      render json: {error: "bad request error"}, status: :bad_request
     end
   end
 
