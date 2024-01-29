@@ -17,16 +17,17 @@ class Article < ApplicationRecord
 
 
   def create_english_version
-    translated_article = self.dup
-    TranslateArticle.call_translator(translated_article, "it", "en")
-    translated_article.save
-  end
-  def is_english
-    if self.language=="en"
-      true
+    translate = TranslateArticle.call_translator(self.dup, "it", "en")
+    if translate.saved?
+      return true
     else
-      false
+      self.errors.add(:to_language, translate.errors.join(", "))
+      return false
     end
+  end
+
+  def is_english
+    self.language == "en"
   end
 
 

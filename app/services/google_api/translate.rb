@@ -1,6 +1,4 @@
-
 require "google/cloud/translate/v2"
-
 
 module GoogleApi
   class Translate
@@ -10,8 +8,7 @@ module GoogleApi
     @client = Google::Cloud::Translate::V2.new
 
     def self.call_translation(from_text, from_language, to_language)
-      translation = @client.translate from_text, to: to_language, from: from_language
-      translation
+      @client.translate from_text, to: to_language, from: from_language
     end
   end
 end

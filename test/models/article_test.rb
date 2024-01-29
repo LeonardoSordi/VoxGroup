@@ -9,9 +9,15 @@ class ArticleTest < ActiveSupport::TestCase
   end
 
   test "article duplicat gets created after article creation" do
-    article_count = Article.count
-    @article=Article.create(title: "titolo articolo", body: "autore con chiave", status: "public", author_id: @author.id, language: "it")
-    assert_equal Article.count, article_count+2
+    assert_difference 'Article.count', 2 do
+      Article.create(title: "titolo articolo", body: "autore con chiave", status: "public", author_id: @author.id, language: "it")
+    end
+  end
+
+  test "article doesn't get translated because already in english" do
+    assert_difference 'Article.count', 1 do
+      Article.create(title: "titolo articolo", body: "autore con chiave", status: "public", author_id: @author.id, language: "en")
+    end
   end
 
   test "article duplicate is the translated version of the original" do
