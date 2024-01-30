@@ -18,17 +18,20 @@ class TranslateArticle
       @errors.push( "Bad language selection" )
     else
       translated_text = self.translate_service
-      @article.body=translated_text
-      @article.language=@to_language
-
-      @article.save
-    end
-
+        unless translated_text==false
+        @article.body=translated_text
+        @article.language=@to_language
+        @article.save
+        end
+      end
     return self
   end
 
   def translate_service
-    GoogleApi::Translate.call_translation(@article.body, @from_language, @to_language)
+    service = GoogleApi::Translate.call_translation(@article.body, @from_language, @to_language)
+    if service==false
+      self.errors.add(service.errors)
+    end
   end
 
 

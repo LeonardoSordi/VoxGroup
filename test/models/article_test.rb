@@ -35,4 +35,8 @@ class ArticleTest < ActiveSupport::TestCase
     assert_equal @article.body, original_body
   end
 
+  test "translation returns error if article is not saved" do
+
+  end
+
 end

@@ -22,6 +22,7 @@ class Article < ApplicationRecord
       return true
     else
       self.errors.add(:to_language, translate.errors.join(", "))
+      render json: self.errors, status: :unprocessable_entity
       return false
     end
   end
