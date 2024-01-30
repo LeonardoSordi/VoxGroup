@@ -30,7 +30,7 @@ class TranslateArticle
   def translate_service
     service = GoogleApi::Translate.call_translation(@article.body, @from_language, @to_language)
     if service==false
-      self.errors.add(service.errors)
+      @errors += service.errors
     end
   end
 
