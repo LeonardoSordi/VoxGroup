@@ -4,7 +4,7 @@ module GoogleApi
   class Translate
 
     attr_accessor :errors
-    attr_reader :client
+    attr_accessor :client
 
     def initialize
 
@@ -25,14 +25,15 @@ module GoogleApi
 
       if client_init==nil
         @errors.push("Failed to establish connection with Google client")
-        false
-      else
-        client_init
       end
+      client_init
     end
 
     def call_translation(from_text, from_language, to_language)
-      unless @client==nil
+      if @client==nil
+        @errors.push("Could not translate article: connection with client is not established")
+        false
+      else
         @client.translate from_text, to: to_language, from: from_language
       end
     end

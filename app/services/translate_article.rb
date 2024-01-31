@@ -19,6 +19,7 @@ class TranslateArticle
     else
       translated_text = self.translate_article
       puts translated_text.inspect
+
         unless translated_text==false
         @article.body=translated_text
         @article.language=@to_language
@@ -31,7 +32,7 @@ class TranslateArticle
 
   def translate_article
     translator_service = GoogleApi::Translate.new
-    if translator_service.client==false
+    if translator_service.client==nil
       @errors += translator_service.errors
       false
     else
@@ -47,5 +48,4 @@ class TranslateArticle
   def errors?
     @errors.size.zero? == false
   end
-
 end

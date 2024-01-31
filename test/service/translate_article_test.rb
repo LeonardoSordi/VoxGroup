@@ -6,7 +6,9 @@ class TranslateArticleTest < ActiveSupport::TestCase
 
   setup do
     @author=Author.create(name:"giovanni", surname: "giorgio")
-    @article = Article.new(title: "rjeiwfjweoi", body: "fhsjdfhdjsfhsd", status: :public, author: @author, language: "it")
+    @article = Article.new(title: "titolo articolo", body: "testo articolo in italiano", status: :public, author: @author, language: "it")
+    @nil_client_translator_error = "Could not translate article: connection with client is not established"
+
   end
 
   test 'translate' do
@@ -19,7 +21,16 @@ class TranslateArticleTest < ActiveSupport::TestCase
     obj.call
 
     assert obj.saved?
-    assert_equal "translation string", @article.body
+    assert_equal "article text in italian", @article.body
+  end
+
+  test "nil client produces error on call_translation inside translator" do
+
+    translator = GoogleApi::Translate.new()
+    translator.client = nil
+    translator.call_translation(@article.language, "en" , @article.body)
+    assert_includes(translator.errors, @nil_client_translator_error)
+
   end
 
 end
