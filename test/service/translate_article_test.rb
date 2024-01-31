@@ -8,6 +8,7 @@ class TranslateArticleTest < ActiveSupport::TestCase
     @author=Author.create(name:"giovanni", surname: "giorgio")
     @article = Article.new(title: "titolo articolo", body: "testo articolo in italiano", status: :public, author: @author, language: "it")
     @nil_client_translator_error = "Could not translate article: connection with client is not established"
+    @expected_body_translation = "article text in Italian"
 
   end
 
@@ -21,7 +22,7 @@ class TranslateArticleTest < ActiveSupport::TestCase
     obj.call
 
     assert obj.saved?
-    assert_equal "article text in italian", @article.body
+    assert_equal @expected_body_translation , @article.body
   end
 
   test "nil client produces error on call_translation inside translator" do
