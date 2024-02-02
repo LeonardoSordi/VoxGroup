@@ -34,7 +34,7 @@ module GoogleApi
 
     def call_translation(from_text, from_language, to_language)
       if @client==nil
-        @errors.push("Could not translate article: connection with client is absent")
+        @errors.push("Could not translate article: client is nil")
         false
       else
         @client.translate from_text, to: to_language, from: from_language

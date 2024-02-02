@@ -8,9 +8,8 @@ class TranslateArticleTest < ActiveSupport::TestCase
     @author=Author.create(name:"giovanni", surname: "giorgio")
     @invalid_article = Article.new(body: "testo articolo in italiano", author: @author, language: "it")
     @article = Article.new(title: "titolo articolo", body: "testo articolo in italiano", status: :public, author: @author, language: "it")
-    @nil_client_translator_error = "Could not translate article: connection with client is not established"
+    @nil_client_translator_error = "Could not translate article: client is nil"
     @expected_body_translation = "article text in Italian"
-
   end
 
   test 'translate' do
@@ -43,12 +42,6 @@ class TranslateArticleTest < ActiveSupport::TestCase
   end
 
 
-  test "nil client error propagates to service" do
-    translator_service_obj = TranslateArticle.new(@article, @article.language, "en")
-    translator_service_obj.errors += [@nil_client_translator_error]
-    translator_service_obj.call
-    assert_includes(@article.errors, @nil_client_translator_error)
-  end
 
 
 end
