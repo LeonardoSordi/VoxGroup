@@ -1,6 +1,6 @@
 class TranslateArticle
 
-  attr_reader :errors
+  attr_accessor :errors
 
   def self.call_translator(article, from_language, to_language)
     new(article, from_language, to_language).call
@@ -11,6 +11,7 @@ class TranslateArticle
     @from_language = from_language
     @to_language = to_language
     @errors = []
+    @translator_service = GoogleApi::Translate.new
   end
 
   def call
@@ -26,18 +27,18 @@ class TranslateArticle
         @article.save
         end
     end
-    puts @errors
-    return self
+    #Propagates errors to article model
+    @errors += @translator_service.errors
+    self
   end
 
   def translate_article
-    translator_service = GoogleApi::Translate.new
-    if translator_service.client==nil
-      @errors += translator_service.errors
+    if @translator_service.client==nil
       false
     else
-    translator_service.call_translation(@article.body, @from_language, @to_language)
+      @translator_service.call_translation(@article.body, @from_language, @to_language)
     end
+
   end
 
 

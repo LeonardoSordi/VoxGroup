@@ -26,12 +26,24 @@ class TranslateArticleTest < ActiveSupport::TestCase
   end
 
   test "nil client produces error on call_translation inside translator" do
-
-    translator = GoogleApi::Translate.new()
+    translator = GoogleApi::Translate.new
     translator.client = nil
     translator.call_translation(@article.language, "en" , @article.body)
     assert_includes(translator.errors, @nil_client_translator_error)
 
   end
 
+  test "nil client error get propagated to article model" do
+    translator_service_obj = TranslateArticle.new(@article, @article.language, "en")
+    translator_service_obj.errors += [@nil_client_translator_error]
+
+    translator_service_obj.call
+
+    puts @article.errors.inspect
+    puts  translator_service_obj.errors.inspect
+
+
+    assert_includes(@article.errors, @nil_client_translator_error)
+
+  end
 end
