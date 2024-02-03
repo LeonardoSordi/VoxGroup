@@ -3,7 +3,7 @@ require "google/cloud/translate/v2"
 module GoogleApi
   class Translate
 
-    attr_accessor :errors
+    attr_reader :errors
     attr_accessor :client
 
     def initialize
@@ -32,13 +32,22 @@ module GoogleApi
       client_init
     end
 
+
+
     def call_translation(from_text, from_language, to_language)
+      response = false
+
       if @client==nil
         @errors.push("Could not translate article: client is nil")
-        false
+
       else
-        @client.translate from_text, to: to_language, from: from_language
+        begin
+          response = @client.translate from_text, to: to_language, from: from_language
+        rescue Error => e
+          @errors.push "Could not translate article: #{e.message}"
+        end
       end
+      response
     end
   end
 end

@@ -1,6 +1,7 @@
 class TranslateArticle
 
-  attr_accessor :errors, :translator
+  attr_accessor :translator
+  attr_reader :errors
 
   def self.call_translator(article, from_language, to_language)
     new(article, from_language, to_language).call
@@ -20,25 +21,26 @@ class TranslateArticle
     else
       translated_text = self.translate_article
       puts translated_text.inspect
-        unless translated_text==false
+      if translated_text!=false
         @article.body=translated_text
         @article.language=@to_language
         @article.save
+      else
+        @errors += @translator.errors
         end
     end
-
     self
   end
 
   def translate_article
-    if @translator.client==nil
 
-      #Propagates errors to this class
-      @errors += @translator.errors
+    response = @translator.call_translation(@article.body, @from_language, @to_language)
 
-      false
+    if response != false
+      response
     else
-      @translator.call_translation(@article.body, @from_language, @to_language)
+      @errors = @translator.errors
+
     end
 
   end
@@ -48,11 +50,10 @@ class TranslateArticle
     unless @article.id.present?
       @errors.push("Error: article not saved ")
     end
-
     @article.id.present?
   end
 
   def errors?
-    @errors.size.zero?
+    @errors.size.zero? == false
   end
 end

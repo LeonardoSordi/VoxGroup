@@ -11,19 +11,19 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   #CREATE
   test "passing author key creates article" do
-    post articles_url, params: {article: {title: "author has key", body: "standard article body for key testing", status: "public"},
+    post articles_url, params: {article: {title: "author has key", body: "standard article body for key testing", status: "public", language: "it"},
                         author_key: @author_with_key.key}
     assert_response :success
   end
 
   test "passing wrong author key does not create" do
-    post articles_url, params: {article: {title: "author has key", body: "standard article body for key testing", status: "public"},
+    post articles_url, params: {article: {title: "author has key", body: "standard article body for key testing", status: "public", language: "it"},
                                 author_key: "wrongkey666"}
     assert_response :bad_request
   end
 
   test "passing no author key does not create" do
-    post articles_url, params: {article: {title: "author has key", body: "standard article body for key testing", status: "public"},
+    post articles_url, params: {article: {title: "author has key", body: "standard article body for key testing", status: "public",  language: "it"},
                                 }
     assert_response :bad_request
   end

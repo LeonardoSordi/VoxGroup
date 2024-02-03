@@ -8,7 +8,7 @@ class TranslateArticleTest < ActiveSupport::TestCase
     @author=Author.create(name:"giovanni", surname: "giorgio")
     @invalid_article = Article.new(body: "testo articolo in italiano", author: @author, language: "it")
     @article = Article.new(title: "titolo articolo", body: "testo articolo in italiano", status: :public, author: @author, language: "it")
-    @nil_client_translator_error = "Could not translate article: client is nil"
+    @nil_client_translation_error = "Could not translate article: client is nil"
     @expected_body_translation = "article text in Italian"
   end
 
@@ -25,23 +25,26 @@ class TranslateArticleTest < ActiveSupport::TestCase
     translator = GoogleApi::Translate.new
     translator.client = nil
     translator.call_translation(@article.language, "en" , @article.body)
-    assert_includes(translator.errors, @nil_client_translator_error)
+    assert_includes(translator.errors, @nil_client_translation_error)
   end
 
   test "article saving failures makes errors? return true" do
     translator_service_obj = TranslateArticle.new(@invalid_article, "it", "en")
     translator_service_obj.call
+
+    assert_equal translator_service_obj.saved?, false
     assert translator_service_obj.errors?
   end
 
-  test "nil client makes errors? return true" do
-    translator_service_obj = TranslateArticle.new(@article, "it", "en")
-    translator_service_obj.translator.client = nil
+  test "nil client error makes errors? function return true" do
+
+    translator = GoogleApi::Translate.new
+    translator.client = nil
+    translator_service_obj = TranslateArticle.new(@invalid_article, "it", "en")
+    translator_service_obj.translator = translator
     translator_service_obj.call
     assert translator_service_obj.errors?
+
   end
-
-
-
 
 end

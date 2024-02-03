@@ -6,7 +6,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @article_creator = Author.create(name: "Martin", surname: "with key")
     @comment_creator = Author.create(name: "Andrea", surname: "with key")
     @random_author = Author.create(name: "7", surname: "with key")
-    @article = Article.create(title: "author has key", body: "standard article body", status: "public", author_id: @article_creator.id)
+    @article = Article.create(title: "author has key", body: "standard article body", status: "public", author_id: @article_creator.id, language: "it")
     @comment = Comment.create(commenter: @comment_creator.key, body: "testo commento", status: "public", article_id: @article.id)
   end
 
