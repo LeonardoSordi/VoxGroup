@@ -20,11 +20,16 @@ class TranslateArticle
       @errors.push( "Bad language selection" )
     else
       translated_text = self.translate_article
-      puts translated_text.inspect
       if translated_text!=false
         @article.body=translated_text
         @article.language=@to_language
-        @article.save
+
+        begin
+        @article.save!
+        rescue Error => e
+          @errors.push("Error on Article save: #{e}")
+        end
+
       else
         @errors += @translator.errors
         end
@@ -40,11 +45,12 @@ class TranslateArticle
       response
     else
       @errors = @translator.errors
-
     end
-
   end
 
+  def translate_service
+    self.translate_article
+  end
 
   def saved?
     unless @article.id.present?

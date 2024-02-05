@@ -11,5 +11,11 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    setup do
+      TranslateArticle.class_eval do
+        define_method(:translate_service, -> {"translation string"})
+      end
+    end
+
   end
 end
