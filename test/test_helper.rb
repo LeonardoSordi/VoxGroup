@@ -17,5 +17,28 @@ module ActiveSupport
       end
     end
 
+    FactoryBot.define do
+      factory :author do
+        name {"Nome autore"}
+        surname {"Cognome autore"}
+      end
+
+      factory :article do
+        title {"titolo articolo"}
+        body {"testo articolo italiano"}
+        status {"public"}
+        language {"it"}
+        author { create(:author) }
+      end
+
+      factory :comment do
+        commenter {author.key}
+        body {"body commento"}
+        status {"public"}
+        article {create {:article}}
+      end
+
+    end
+
   end
 end

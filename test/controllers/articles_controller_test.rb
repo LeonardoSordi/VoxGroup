@@ -5,8 +5,8 @@ require "test_helper"
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-  @author_with_key = Author.create(name: "Martin", surname: "with key")
-  @article_from_author_with_key = Article.create(title: "autore con chiave", body: "standard article body", status: "public", author_id: @author_with_key.id, language: "it")
+  @author_with_key = FactoryBot.create(:author)
+  @article_from_author_with_key = FactoryBot.create(:article, author: @author_with_key )
   end
 
   #CREATE

@@ -5,7 +5,8 @@ class ArticleTest < ActiveSupport::TestCase
 
 
   setup do
-    @author=Author.create(name:"giovanni", surname: "giorgio")
+    @author=FactoryBot.create(:author)
+    @translated_body = "translation string"
   end
 
   test "article duplicat gets created after article creation" do
@@ -23,10 +24,9 @@ class ArticleTest < ActiveSupport::TestCase
   test "article duplicate is the translated version of the original" do
 
     @article=Article.create(title: "titolo articolo", body: "autore con chiave", status: "public", author_id: @author.id, language: "it")
-    translated_body="author with key"
     translated_article = Article.last
 
-    assert_equal translated_article.body, translated_body
+    assert_equal translated_article.body, @translated_body
   end
 
   test "original article body does not get modified upon translation" do

@@ -3,11 +3,11 @@ require "test_helper"
 class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @article_creator = Author.create(name: "Martin", surname: "with key")
-    @comment_creator = Author.create(name: "Andrea", surname: "with key")
-    @random_author = Author.create(name: "7", surname: "with key")
-    @article = Article.create(title: "author has key", body: "standard article body", status: "public", author_id: @article_creator.id, language: "it")
-    @comment = Comment.create(commenter: @comment_creator.key, body: "testo commento", status: "public", article_id: @article.id)
+    @article_creator = FactoryBot.create(:author)
+    @comment_creator = FactoryBot.create(:author)
+    @random_author =  FactoryBot.create(:author)
+    @article = FactoryBot.create(:article, author: @article_creator)
+    @comment = FactoryBot.create(:comment, article: @article, commenter: @comment_creator.key)
   end
 
   test "article creator cannot comment its article" do
@@ -21,6 +21,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "comment creator can destroy comment" do
+
     delete article_comment_url(@article, @comment), params: {author_key: @comment_creator.key}
     assert_response :no_content
   end

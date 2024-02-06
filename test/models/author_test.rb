@@ -4,16 +4,15 @@ require 'minitest/autorun'
 class AuthorTest < ActiveSupport::TestCase
 
   def setup
-    @author = Author.create(name: "Test", surname: "Author", age: 40)
-    @author_no_key = Author.create(name: "Test no key", surname: "Author", age: 40)
-    @article = Article.create(title: "testTitle 1", body: "test body for article", author_id: @author.id, status: "public", language: "en" )
+    @author=FactoryBot.create(:author)
+    @article=FactoryBot.create(:article)
   end
 
 
   test 'count' do
-    assert_equal 1, @author.articles_count
+    author_articles_count = @author.articles_count
     Article.create(title: "testTitle 2", body: "test body for article 2", author_id: @author.id, status: "public", language: "en" )
-    assert_equal 2, @author.articles_count
+    assert_equal author_articles_count+1, @author.articles_count
   end
 
   test 'clean_all_my_articles' do
@@ -28,7 +27,7 @@ class AuthorTest < ActiveSupport::TestCase
   end
 
   test "key is generated on creation" do
-    assert @author_no_key.key.present?
+    assert @author.key.present?
   end
 
   test'check key not change on update' do

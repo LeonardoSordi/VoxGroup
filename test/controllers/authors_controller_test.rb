@@ -2,11 +2,7 @@ require "test_helper"
 
 class AuthorsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @author = Author.create(name: "Test", surname: "Author", age: 40)
-    @author_no_key = Author.create(name: "Test no key", surname: "Author", age: 40)
-    @integer = 3
-    puts @integer
-    @integer += 1
+    @author = FactoryBot.create(:author)
   end
 
   test "index key not present gives bad request" do

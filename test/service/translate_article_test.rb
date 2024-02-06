@@ -5,11 +5,13 @@ class TranslateArticleTest < ActiveSupport::TestCase
 
 
   setup do
-    @author=Author.create(name:"giovanni", surname: "giorgio")
-    @invalid_article = Article.new(body: "testo articolo in italiano", author: @author, language: "it")
-    @article = Article.new(title: "titolo articolo", body: "testo articolo in italiano", status: :public, author: @author, language: "it")
+    @author=FactoryBot.create(:author)
+    @article = FactoryBot.build(:article)
+    @invalid_article = FactoryBot.build(:article)
+    #invalidates article by making title nil
+    @invalid_article.title=nil
     @nil_client_translation_error = "Could not translate article: client is nil"
-    @expected_body_translation = "article text in Italian"
+    @expected_body_translation = "translation string"
   end
 
   test 'translate' do
@@ -31,7 +33,6 @@ class TranslateArticleTest < ActiveSupport::TestCase
   test "article saving failures makes errors? return true" do
     translator_service_obj = TranslateArticle.new(@invalid_article, "it", "en")
     translator_service_obj.call
-
     assert_equal translator_service_obj.saved?, false
     assert translator_service_obj.errors?
   end
