@@ -24,10 +24,9 @@ class TranslateArticle
         @article.body=translated_text
         @article.language=@to_language
 
-        begin
-        @article.save!
-        rescue Error => e
-          @errors.push("Error on Article save: #{e}")
+
+        unless @article.save
+          @errors.push("#{@article.errors.full_messages}")
         end
 
       else
@@ -39,7 +38,7 @@ class TranslateArticle
 
   def translate_article
 
-    response = @translator.call_translation(@article.body, @from_language, @to_language)
+    response = self.translate_service
 
     if response != false
       response
@@ -49,12 +48,12 @@ class TranslateArticle
   end
 
   def translate_service
-    self.translate_article
+    @translator.call_translation(@article.body, @from_language, @to_language)
   end
 
   def saved?
     unless @article.id.present?
-      @errors.push("Error: article not saved ")
+      @errors.push("Error: article not saved")
     end
     @article.id.present?
   end
