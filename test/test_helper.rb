@@ -11,34 +11,14 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    include FactoryBot::Syntax::Methods
     setup do
       TranslateArticle.class_eval do
         define_method(:translate_service, -> {"translation string"})
       end
     end
 
-    FactoryBot.define do
-      factory :author do
-        name {"Nome autore"}
-        surname {"Cognome autore"}
-      end
 
-      factory :article do
-        title {"titolo articolo"}
-        body {"testo articolo italiano"}
-        status {"public"}
-        language {"it"}
-        author { create(:author) }
-      end
-
-      factory :comment do
-        commenter {author.key}
-        body {"body commento"}
-        status {"public"}
-        article {create {:article}}
-      end
-
-    end
 
   end
 end

@@ -107,6 +107,9 @@ GEM
     erubi (1.12.0)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     faraday (1.10.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -574,7 +577,7 @@ DEPENDENCIES
   capybara
   debug
   dotenv
-  factory_bot (~> 6.4)
+  factory_bot_rails
   google-api-client
   google-cloud
   google-cloud-translate

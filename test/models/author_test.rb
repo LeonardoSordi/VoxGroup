@@ -22,7 +22,7 @@ class AuthorTest < ActiveSupport::TestCase
   end
 
   test 'validate_name' do
-    author2 = Author.new(name: "antonio", surname: "rossi")
+    author2 = FactoryBot.build(:author, name: "andrea", surname: "rossi")
     assert author2.valid?
   end
 
