@@ -7,6 +7,8 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
   @author_with_key = FactoryBot.create(:author)
   @article_from_author_with_key = FactoryBot.create(:article, author: @author_with_key )
+    @translated_body = "Italian article text"
+
   end
 
   #CREATE
@@ -28,12 +30,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :bad_request
   end
 
-  test "article gets translated after creation" do
-    post articles_url, params: {article: {title: "author has key", body: "autore con chiave", status: "public", language: "it"}, to_language: "en"
-    }
-    puts Article.first.inspect
-    puts Article.last.inspect
-  end
 
   #DESTROY
   test "passing author key destroys article" do
