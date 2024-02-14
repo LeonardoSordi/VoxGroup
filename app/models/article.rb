@@ -17,12 +17,9 @@ class Article < ApplicationRecord
 
 
   def create_english_version
-    translate = TranslateArticle.call_translator(self.dup, "it", "en")
-    if translate.saved?
-      return true
-    else
-      self.errors.add(:to_language, translate.errors.join(", "))
-      return false
+    translated_article = TranslateArticleJob.perform_now(self)
+    if translated_article != true
+      self.errors.add(translated_article)
     end
   end
 

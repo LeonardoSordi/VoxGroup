@@ -7,7 +7,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
   @author_with_key = FactoryBot.create(:author)
   @article_from_author_with_key = FactoryBot.create(:article, author: @author_with_key )
-    @translated_body = "Italian article text"
+  @translated_body = "Italian article text"
 
   end
 
