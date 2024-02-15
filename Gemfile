@@ -33,6 +33,7 @@ gem "google-cloud-translate"
 gem "google-cloud-translate-v2"
 gem 'dotenv'
 
+gem 'sidekiq'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

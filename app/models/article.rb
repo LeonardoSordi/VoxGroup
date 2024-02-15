@@ -17,10 +17,7 @@ class Article < ApplicationRecord
 
 
   def create_english_version
-    translated_article = TranslateArticleJob.perform_now(self)
-    if translated_article != true
-      self.errors.add(translated_article)
-    end
+    TranslateArticleJob.perform_later(self)
   end
 
   def is_english
