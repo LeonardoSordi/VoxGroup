@@ -6493,3 +6493,800 @@ Migrating to AddLanguageToAritcle (20240125003158)
   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddMailToAuthor (20240219150354)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "authors" ADD "mailaddress" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240219150354') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to SetMailToAuthor (20240219150706)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Update All (0.1ms)[0m  [1m[33mUPDATE "authors" SET "mailaddress" = ? WHERE "authors"."mailaddress" IS NULL[0m  [["mailaddress", "giacomo.di.stefano.95@gmail.com"]]
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240219150706') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-02-19 17:18:39 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (12.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:31:in `index'
+Completed 200 OK in 271ms (Views: 12.1ms | ActiveRecord: 12.6ms | Allocations: 12611)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-19 17:18:43 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:31:in `index'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 601)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-19 17:18:44 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:31:in `index'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 599)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-19 17:18:45 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:31:in `index'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 599)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-19 17:18:48 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:31:in `index'
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 599)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-19 17:18:49 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:31:in `index'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 586)
+
+
+Started GET "/rails/mailers." for 127.0.0.1 at 2024-02-19 17:18:57 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/rails/mailers."):
+  
+Started GET "/rails" for 127.0.0.1 at 2024-02-19 17:19:02 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/rails"):
+  
+Started GET "/rails/mailers" for 127.0.0.1 at 2024-02-19 17:22:48 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#index as HTML
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 462)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 1.6ms | Allocations: 776)
+Completed 200 OK in 570ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 19036)
+
+
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:23:31 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+Completed 404 Not Found in 3ms (ActiveRecord: 0.0ms | Allocations: 647)
+
+
+  
+AbstractController::ActionNotFound (Mailer preview 'application_mailer/send_article' not found):
+  
+railties (7.1.0) lib/rails/mailers_controller.rb:74:in `find_preview'
+activesupport (7.1.0) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.0) lib/active_support/callbacks.rb:183:in `block (2 levels) in halting_and_conditional'
+actionpack (7.1.0) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.0) lib/active_support/callbacks.rb:184:in `block in halting_and_conditional'
+activesupport (7.1.0) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.0) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.0) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.0) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+i18n (1.14.1) lib/i18n.rb:322:in `with_locale'
+railties (7.1.0) lib/rails/mailers_controller.rb:107:in `set_locale'
+activesupport (7.1.0) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.0) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.0) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.0) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.0) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.0) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.0) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.0) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.0) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.0) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.0) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.0) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.0) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.0) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.0) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.0) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.0) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.0) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.0) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:25:36 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+Completed 404 Not Found in 3ms (ActiveRecord: 0.0ms | Allocations: 557)
+
+
+  
+AbstractController::ActionNotFound (Mailer preview 'application_mailer/send_article' not found):
+  
+railties (7.1.0) lib/rails/mailers_controller.rb:74:in `find_preview'
+activesupport (7.1.0) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.0) lib/active_support/callbacks.rb:183:in `block (2 levels) in halting_and_conditional'
+actionpack (7.1.0) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.0) lib/active_support/callbacks.rb:184:in `block in halting_and_conditional'
+activesupport (7.1.0) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.0) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.0) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.0) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+i18n (1.14.1) lib/i18n.rb:322:in `with_locale'
+railties (7.1.0) lib/rails/mailers_controller.rb:107:in `set_locale'
+activesupport (7.1.0) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.0) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.0) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.0) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.0) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.0) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.0) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.0) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.0) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.0) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.0) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.0) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.0) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.0) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.0) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.0) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.0) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.0) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.0) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/rails/mailers/" for 127.0.0.1 at 2024-02-19 17:25:49 +0100
+Processing by Rails::MailersController#index as HTML
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 301)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 1.5ms | Allocations: 567)
+Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 1330)
+
+
+Started GET "/rails/mailers/" for 127.0.0.1 at 2024-02-19 17:27:59 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#index as HTML
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 462)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 1.9ms | Allocations: 776)
+Completed 200 OK in 104ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 19030)
+
+
+Started GET "/rails/mailers/" for 127.0.0.1 at 2024-02-19 17:28:02 +0100
+Processing by Rails::MailersController#index as HTML
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 16)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 0.5ms | Allocations: 100)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 372)
+
+
+Started GET "/rails/mailers/" for 127.0.0.1 at 2024-02-19 17:35:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#index as HTML
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1406)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 2.0ms | Allocations: 1720)
+Completed 200 OK in 104ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 20194)
+
+
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:35:57 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.5ms | Allocations: 14589)
+
+
+  
+NoMethodError (undefined method `title' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:9:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:37:14 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 0.4ms | Allocations: 30119)
+
+
+  
+NoMethodError (undefined method `title' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:9:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:38:15 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 2.3ms | Allocations: 23469)
+
+
+  
+NoMethodError (undefined method `title' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:9:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:38:32 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2166)
+
+
+  
+NoMethodError (undefined method `title' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:9:in `send_article'
+Started GET "/rails/mailers/application_mailer" for 127.0.0.1 at 2024-02-19 17:38:35 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer"}
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1127)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 1.9ms | Allocations: 1408)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 2512)
+
+
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:38:36 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2149)
+
+
+  
+NoMethodError (undefined method `title' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:9:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:39:41 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.3ms | Allocations: 27454)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/application_mailer.rb:5:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:39:52 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 170ms (ActiveRecord: 2.2ms | Allocations: 21111)
+
+
+  
+NameError (undefined local variable or method `article' for #<ApplicationMailer:0x000000000126b0>):
+  
+app/mailers/application_mailer.rb:11:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:41:00 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 0.3ms | Allocations: 27392)
+
+
+  
+NoMethodError (undefined method `mailaddress' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:42:26 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 2.1ms | Allocations: 21010)
+
+
+  
+NoMethodError (undefined method `mailaddress' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:42:58 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 119ms (ActiveRecord: 0.3ms | Allocations: 27306)
+
+
+  
+NoMethodError (undefined method `mailaddress' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:43:01 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1742)
+
+
+  
+NoMethodError (undefined method `mailaddress' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:43:02 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1737)
+
+
+  
+NoMethodError (undefined method `mailaddress' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = ? LIMIT ?[0m  [["key", "IGUFHWYBD4E16B61SI9R"], ["LIMIT", 1]]
+  [1m[36mAuthor Create (0.1ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name", "surname", "age", "key", "mailaddress") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2024-02-19 16:45:49.038659"], ["updated_at", "2024-02-19 16:45:49.038659"], ["name", "antonio"], ["surname", "rossi"], ["age", nil], ["key", "IGUFHWYBD4E16B61SI9R"], ["mailaddress", nil]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:45:57 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 69.7ms
+Completed 500 Internal Server Error in 269ms (ActiveRecord: 0.2ms | Allocations: 35102)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/" for 127.0.0.1 at 2024-02-19 17:46:09 +0100
+Processing by Rails::MailersController#index as HTML
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1258)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 2.2ms | Allocations: 1539)
+Completed 200 OK in 9ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 2542)
+
+
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:46:11 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.5ms
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2678)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:49:19 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 2.6ms
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 2.3ms | Allocations: 25025)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:51:58 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 2.5ms
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 2.3ms | Allocations: 25000)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:52:38 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 2.9ms
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 2.6ms | Allocations: 25081)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:53:26 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 11.1ms
+Completed 500 Internal Server Error in 165ms (ActiveRecord: 0.4ms | Allocations: 41553)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:53:28 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.5ms
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2698)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:54:16 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.6ms
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2692)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 17:54:18 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.4ms
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2692)
+
+
+  
+ActionView::MissingTemplate (Missing template application_mailer/send_article with "mailer".
+
+Searched in:
+  * "application_mailer"
+):
+  
+app/mailers/application_mailer.rb:15:in `send_article'
+Started GET "/rails/mailers/" for 127.0.0.1 at 2024-02-19 18:56:40 +0100
+Processing by Rails::MailersController#index as HTML
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1300)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 3.2ms | Allocations: 1581)
+Completed 200 OK in 186ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 18466)
+
+
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 18:56:44 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (1.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  Rendering layout layouts/mailer.html.erb
+  Rendering application_mailer/send_article.html.erb within layouts/mailer
+  Rendered application_mailer/send_article.html.erb within layouts/mailer (Duration: 0.5ms | Allocations: 145)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.4ms | Allocations: 366)
+ApplicationMailer#send_article: processed outbound mail in 46.0ms
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/email.html.erb (Duration: 24.8ms | Allocations: 1938)
+Completed 200 OK in 162ms (Views: 92.4ms | ActiveRecord: 2.5ms | Allocations: 13505)
+
+
+Started GET "/rails/mailers/application_mailer/send_article?part=text%2Fhtml" for 127.0.0.1 at 2024-02-19 18:56:44 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  Rendering layout layouts/mailer.html.erb
+  Rendering application_mailer/send_article.html.erb within layouts/mailer
+  Rendered application_mailer/send_article.html.erb within layouts/mailer (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.4ms | Allocations: 102)
+ApplicationMailer#send_article: processed outbound mail in 1.9ms
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Completed 200 OK in 15ms (Views: 8.9ms | ActiveRecord: 0.1ms | Allocations: 3228)
+
+
+  [1m[36mArticle Load (12.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "status", "author_id", "language") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "titolo articolo"], ["body", "corpo articolo."], ["created_at", "2024-02-19 18:02:17.286350"], ["updated_at", "2024-02-19 18:02:17.286350"], ["status", "public"], ["author_id", 3], ["language", "it"]]
+[ActiveJob] Failed enqueuing TranslateArticleJob to Sidekiq(default): RedisClient::CannotConnectError (Impossibile stabilire la connessione. Risposta non corretta della parte connessa dopo l'intervallo di tempo oppure mancata risposta dall'host collegato. - user specified timeout)
+[ActiveJob] ↳ app/models/article.rb:20:in `create_english_version'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticle Create (0.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "status", "author_id", "language") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "titolo articolo"], ["body", "corpo articolo."], ["created_at", "2024-02-19 18:03:50.208519"], ["updated_at", "2024-02-19 18:03:50.208519"], ["status", "public"], ["author_id", 3], ["language", "en"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 19:05:24 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  Rendering layout layouts/mailer.html.erb
+  Rendering application_mailer/send_article.html.erb within layouts/mailer
+  Rendered application_mailer/send_article.html.erb within layouts/mailer (Duration: 0.4ms | Allocations: 145)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.2ms | Allocations: 363)
+ApplicationMailer#send_article: processed outbound mail in 5.0ms
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/email.html.erb (Duration: 1.7ms | Allocations: 2300)
+Completed 200 OK in 206ms (Views: 4.5ms | ActiveRecord: 1.7ms | Allocations: 38753)
+
+
+Started GET "/rails/mailers/application_mailer/send_article?part=text%2Fhtml" for 127.0.0.1 at 2024-02-19 19:05:27 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  Rendering layout layouts/mailer.html.erb
+  Rendering application_mailer/send_article.html.erb within layouts/mailer
+  Rendered application_mailer/send_article.html.erb within layouts/mailer (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.4ms | Allocations: 102)
+ApplicationMailer#send_article: processed outbound mail in 1.4ms
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 3408)
+
+
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 19:06:10 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+ApplicationMailer#send_article: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 1.9ms | Allocations: 29563)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/mailers/application_mailer.rb:9:in `send_article'
+Started GET "/rails/mailers/application_mailer/send_article" for 127.0.0.1 at 2024-02-19 19:07:01 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  Rendering layout layouts/mailer.html.erb
+  Rendering application_mailer/send_article.html.erb within layouts/mailer
+  Rendered application_mailer/send_article.html.erb within layouts/mailer (Duration: 0.7ms | Allocations: 144)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.8ms | Allocations: 362)
+ApplicationMailer#send_article: processed outbound mail in 5.9ms
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/email.html.erb (Duration: 2.2ms | Allocations: 2316)
+Completed 200 OK in 197ms (Views: 5.0ms | ActiveRecord: 2.6ms | Allocations: 34321)
+
+
+Started GET "/rails/mailers/application_mailer/send_article?part=text%2Fhtml" for 127.0.0.1 at 2024-02-19 19:07:03 +0100
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"application_mailer/send_article"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ test/mailers/previews/application_mailer_preview.rb:3:in `send_article'
+  Rendering layout layouts/mailer.html.erb
+  Rendering application_mailer/send_article.html.erb within layouts/mailer
+  Rendered application_mailer/send_article.html.erb within layouts/mailer (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.4ms | Allocations: 102)
+ApplicationMailer#send_article: processed outbound mail in 1.3ms
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 3406)
+
+
