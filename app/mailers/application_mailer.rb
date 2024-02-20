@@ -4,9 +4,8 @@ class ApplicationMailer < ActionMailer::Base
 
   def send_article(article)
 
-    @author = params[:author]
-
     @subject = article.body
+    @author = article.author
 
     mail(to: @author.mailaddress, subject: @subject)
 
