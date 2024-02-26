@@ -6,7 +6,6 @@ class ApplicationMailer < ActionMailer::Base
 
     @subject = article.body
     @author = article.author
-
     mail(to: @author.mailaddress, subject: @subject)
 
   end
