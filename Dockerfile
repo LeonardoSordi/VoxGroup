@@ -8,11 +8,9 @@ FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 WORKDIR /rails
 
 # Set production environment
-ENV RAILS_ENV="production" \
+ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
-    BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
-
+    BUNDLE_PATH="/usr/local/bundle"
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -23,7 +21,7 @@ RUN apt-get update -qq && \
 
 # Install application gems
 RUN gem install bundler
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile* ./
 RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
@@ -60,9 +58,14 @@ RUN useradd rails --create-home --shell /bin/bash && \
     chown -R rails:rails db log storage tmp
 USER rails:rails
 
-# Entrypoint prepares the database.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+# Set execution permissions on entrypoint.sh
+# RUN chmod +x ./bin/docker-entrypoint.sh
+
+# Executes entrypoint.sh instructions
+ENTRYPOINT ["/rails/bin/docker-entrypoint.sh"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+#CMD ["./bin/rails", "server"]
+CMD ./bin/docker-entrypoint.sh
+
