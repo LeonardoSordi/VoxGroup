@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "serious-ascent-412216",
+  "private_key_id": "4ba1494b9c483598adc020625ba520b7ce2bb5f0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCNWyU1cxJKqVsI\n0pjpBTF0YYu9GJV0YAJ//A4W/CmyHdK+enwDIdJcK6A1ij7x2fhcCc67nrXjRP+Q\nyGAKtcJVrwBDNkWl19hGStivW5/sMnpW+uNv3EmHtdsMqc1kk+fOHAC2HqxUzjQX\n9af/dLFfGHAWZAfJkGRnC575mK1tVV6vHevm8k1LGAju1RBGIepw5UruMEfsasak\nqUxRQIaZCKvW9JTsOanPsZ8HNrcJM6Gy+jRp+LH6gIaDd9BfkpDOqF2h0OQ88hbW\n+zFfjSdaZJG+/KAB40aqQIQKHd06dDc4/TlINEWknFVUmuMwnDRjfgVYbjtRmFVw\npP2Xr8hnAgMBAAECggEAInnIaXDXVT5Y5Z33jV2m4iuoWUZVrTx9X5mqFhEKWlbL\nv4lAFcN5+uDpAiXllDcFS+1YbooW8ocxja5RPkt2Sk+UUNA7zGcIaJx4nMxMBN+K\n1wv5zJ59kIvaEQyY+57XOn257rEsdsKUEgPoJXXgjMD5FXzwKUj+M+Oxsk56fd+n\nmyFgA4eCK4bYa1gBxTy79c9ZgBmMXtqgNmIlThfG2YjUqJK3DvbZ//iWcGViBXM5\nX6FH9aOSzR/9uwgN5fa4oVT4eGyt1d8M8RGRichSyAJIDsG6HgfRfvFT2st1No+9\nCHI+wnoZ97CO/51XRW8BTRx9ioFc5pBzxzSX+fNBgQKBgQDA0upGNjXWLSl9K3V9\nOMoul1LpULMDcHM2bB5DOVsq4PUOktoLfVbU3GzOqQ+BJiiEaX1CEyRP0q6L2mA/\n94y9GMq46HKFb2pEde8b+fSlZV7WpU+HTkW6SpF/twWvHsS9my+Pp5tAy8faIhk0\nynrXAqfcIwWXG/audjhm9rGtWwKBgQC7q16FETltVKBTGHGO/wQs0XJcPhz4wQtP\nXzM1a/6mAyoxnazddVNw5qu57frW5gjTsiBRCwyf5vFTJg1tVLrENMBF83TSE8tt\nqyEOCjXnbeTt0olVscpmmIb/AVwWgA8ARrAT5ea4tc+BWDwgId2a8STq04lS2Wvt\n1quj+j8C5QKBgAsmp2G0FNzz86hHcR3ywM589dCEWDXktOT6z603jewm4kUbfPyZ\nHQJmVOyGnlzrpgAyUYoWrUzodCumT1ajrEHrQx36Y1UQImcfItrNU7aU7C0hlj3O\n6v1g/pUSMoP0FZCZfuCh4rqWjlIxEqAY7Y2tm6OBavtYJKXmNFDQB2ptAoGBALfL\nha5cyBlDICFBdzXMm5IpLg8Y5dbZePIrEkPnmGWOA+zDt2DMXwPbZaOaZmfAsjRh\n5zR31c1kqEP+qHfC24b9ArF/VZHIwRqO1rihV1loTyR7ZPUAQnFoQA3OjxmaIRbs\nI9XY+rU7mhXbDEeL4zSzpqw0r/Dr7r/n1gGqO7vhAoGBAIcGKaDlRJqhA7U06pja\nUJXEI+GlwV3igvcO3nk/Imu3SV1f+VYAlD1KCgLiHJiEnpgDzp7EA/9tlqZSHDJq\nP/nIMnO2IcIGwlY2qAl2hQ/6yv7dKjJmibwCSrLc42eaurBTJNy6L25dZEIW/qVg\n6ChqmK8E61VPj+uRtJLzyjZB\n-----END PRIVATE KEY-----\n",
+  "client_email": "leonardo-translations@serious-ascent-412216.iam.gserviceaccount.com",
+  "client_id": "107537220608908198919",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/leonardo-translations%40serious-ascent-412216.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

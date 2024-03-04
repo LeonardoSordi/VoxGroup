@@ -10,7 +10,9 @@ WORKDIR /rails
 # Set production environment
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
-    BUNDLE_PATH="/usr/local/bundle"
+    BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_WITHOUT="development"
+
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -21,6 +23,7 @@ RUN apt-get update -qq && \
 
 # Install application gems
 RUN gem install bundler
+COPY Gemfile Gemfile.lock ./
 COPY Gemfile* ./
 RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
@@ -45,27 +48,10 @@ RUN SECRET_KEY_BASE_DUMMY=1
 FROM base
 
 # Install packages needed for deployment
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-# Copy built artifacts: gems, application
-COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build /rails /rails
 
-# Run and own only the runtime files as a non-root user for security
-RUN useradd rails --create-home --shell /bin/bash && \
-    chown -R rails:rails db log storage tmp
-USER rails:rails
 
-# Set execution permissions on entrypoint.sh
-# RUN chmod +x ./bin/docker-entrypoint.sh
-
-# Executes entrypoint.sh instructions
-ENTRYPOINT ["/rails/bin/docker-entrypoint.sh"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-#CMD ["./bin/rails", "server"]
-CMD ./bin/docker-entrypoint.sh
 
