@@ -5,35 +5,61 @@ ARG RUBY_VERSION=3.2.2
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
 # Rails app lives here
-WORKDIR /rails
+WORKDIR /app
 
 # Set production environment
 ENV RAILS_ENV="development" \
-    BUNDLE_DEPLOYMENT="1" \
-    BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+    BUNDLER_VERSION=2.5.6
 
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
 # Install packages needed to build gems
-RUN apt-get update -qq && \
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client && \
     apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config
+
+RUN apk add --update --no-cache \
+      binutils-gold \
+      build-base \
+      curl \
+      file \
+      g++ \
+      gcc \
+      git \
+      less \
+      libstdc++ \
+      libffi-dev \
+      libc-dev \  linux-headers \
+      libxml2-dev \
+      libxslt-dev \
+      libgcrypt-dev \
+      make \
+      netcat-openbsd \
+      nodejs \
+      openssl \
+      pkgconfig \
+      postgresql-dev \
+      python \
+      tzdata \
+      yarn
 
 # Install application gems
 RUN gem install bundler
 COPY Gemfile Gemfile.lock ./
-COPY Gemfile* ./
-RUN bundle install && \
-    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
-    bundle exec bootsnap precompile --gemfile
 
-# Copy application code
-COPY . .
 
-# Precompile bootsnap code for faster boot times
-RUN bundle exec bootsnap precompile app/ lib/
+# set the configuration options for the nokogiri gem build
+RUN bundle config build.nokogiri --use-system-libraries
+
+RUN bundle check || bundle install
+
+COPY package.json yarn.lock ./
+
+RUN yarn install --check-files \
+
+#Copy application code
+COPY . ./
 
 # Adjust binfiles to be executable on Linux
 RUN chmod +x bin/* && \
@@ -49,9 +75,7 @@ FROM base
 
 # Install packages needed for deployment
 
-
-
-
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 
+#CMD ["rails", "server", "-b", "0.0.0.0"]

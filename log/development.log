@@ -7831,3 +7831,13 @@ Started GET "/articles" for 127.0.0.1 at 2024-02-29 20:52:10 +0100
   
 ActionController::RoutingError (No route matches [GET] "/articles"):
   
+Started GET "/rails/mailers/" for 127.0.0.1 at 2024-03-04 16:13:23 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (96.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#index as HTML
+  Rendering layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb
+  Rendering H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application
+  Rendered H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/mailers/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1191)
+  Rendered layout H:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/layouts/application.html.erb (Duration: 2.4ms | Allocations: 1505)
+Completed 200 OK in 1224ms (Views: 86.8ms | ActiveRecord: 0.0ms | Allocations: 30790)
+
+
