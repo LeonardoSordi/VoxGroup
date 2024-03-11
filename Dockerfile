@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.2.2
-FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
+FROM registry.docker.com/library/ruby:$RUBY_VERSION as base
 
 # Rails app lives here
 WORKDIR /app
@@ -52,7 +52,8 @@ COPY Gemfile Gemfile.lock ./
 # set the configuration options for the nokogiri gem build
 RUN bundle config build.nokogiri --use-system-libraries
 
-RUN bundle check || bundle install
+# install gemfile dependencies
+#RUN bundle check || bundle install
 
 COPY package.json yarn.lock ./
 

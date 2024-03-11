@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
 
   end
 
-  # GET /authors/1 or /authors/1.json
+  # GET /articles/1 or /articles/1.json
   def show
     render json: {article: @article}, status: :ok
   end
@@ -39,6 +39,8 @@ class ArticlesController < ApplicationController
           render json: @article.errors, status: :unprocessable_entity
         end
   end
+
+
   #D - Destroy
   def destroy
     if @article.destroy!
@@ -47,6 +49,7 @@ class ArticlesController < ApplicationController
       render json: {error: "could not destroy article"}, status: :internal_server_error
     end
   end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.
