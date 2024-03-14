@@ -36,6 +36,21 @@ services:
     networks:
       - application-network
 
+  web:
+    build:
+      context: C:\Users\leox-\RubymineProjects\GetArticlesApp
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    command: bash -c "bundle install && rm -f tmp/pids/server.pid && bundle exec rails s -p 3001 -b 0.0.0.0"
+
+    #use networks in order to make containers communicate
+    networks:
+      - application-network
+
+    depends_on:
+      - api
+
 
 
 networks:
