@@ -32,6 +32,7 @@ gem "google-cloud"
 gem "google-cloud-translate"
 gem "google-cloud-translate-v2"
 gem 'dotenv'
+gem 'rack-cors'
 
 gem 'sidekiq'
 

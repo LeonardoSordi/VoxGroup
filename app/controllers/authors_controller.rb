@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
 
 
   before_action :set_author, only: %i[ show edit update destroy ]
-  before_action :check_key, only: [ :index, :show ]
+  before_action :check_key, only: [:show ]
   before_action :check_key_is_valid, only: [:destroy, :update, :show]
   def authenticate_author(author)
 
@@ -74,7 +74,6 @@ class AuthorsController < ApplicationController
   end
 
   def check_key_is_valid
-
     unless author_params[:key].present? && author_params[:key] == @author.key
       render json: {error: "bad request error"}, status: :bad_request
     end

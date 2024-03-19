@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
 
   before_action :set_article, only: %i[ show edit update destroy ]
   before_action :set_author, only: [:create, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+
 
 
   #C - Create
@@ -66,7 +68,7 @@ class ArticlesController < ApplicationController
     if Author.find_by(key: params[:author_key]).present?
       @author = Author.find_by(key: params[:author_key])
     else
-      render json: {error: "bad request error"}, status: :bad_request
+      render json: {error: "bad request error: set_author failed. Likely no author has been found for given key"}, status: :bad_request
     end
   end
 
@@ -74,7 +76,13 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body, :status, :author_id, :language)
+      if params[:article].present?
+        params.require(:article).permit(:title, :body, :status, :author_id, :language)
+      else
+        #expecially if the request is coming from an external app
+        params.permit(:title, :body, :status, :author_id, :language)
+      end
     end
-  end
+end
+
 
