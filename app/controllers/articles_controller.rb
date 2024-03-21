@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
 
   before_action :set_article, only: %i[ show edit update destroy ]
   before_action :set_author, only: [:create, :update, :destroy]
-  skip_before_action :verify_authenticity_token
 
 
 
