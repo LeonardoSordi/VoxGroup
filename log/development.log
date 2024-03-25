@@ -15304,3 +15304,759 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 14ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1411)
 
 
+Started GET "/articles" for 172.18.0.4 at 2024-03-21 22:30:23 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 152ms (Views: 20.6ms | ActiveRecord: 3.2ms | Allocations: 24288)
+
+
+Started GET "/articles/8" for 172.18.0.4 at 2024-03-21 22:30:26 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 56ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 13741)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-21 22:30:26 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 15ms (ActiveRecord: 0.2ms | Allocations: 1610)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-21 22:35:14 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 12ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1415)
+
+
+Started GET "/articles/8" for 172.18.0.4 at 2024-03-21 22:35:15 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1071)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-21 22:35:15 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 11ms (ActiveRecord: 0.2ms | Allocations: 868)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-21 22:36:02 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 168ms (Views: 35.4ms | ActiveRecord: 4.2ms | Allocations: 24290)
+
+
+Started GET "/articles/7" for 172.18.0.4 at 2024-03-21 22:36:05 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 13749)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-21 22:36:05 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 19ms (ActiveRecord: 0.3ms | Allocations: 1610)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-21 22:38:02 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 130ms (Views: 20.6ms | ActiveRecord: 3.3ms | Allocations: 24290)
+
+
+Started GET "/articles/6" for 172.18.0.4 at 2024-03-21 22:38:05 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 47ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 13749)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-21 22:38:05 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 14ms (ActiveRecord: 0.2ms | Allocations: 1610)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-21 22:39:18 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 153ms (Views: 22.0ms | ActiveRecord: 3.5ms | Allocations: 24297)
+
+
+Started GET "/articles/6" for 172.18.0.4 at 2024-03-21 22:39:19 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 53ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 13743)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-21 22:39:20 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 14ms (ActiveRecord: 0.2ms | Allocations: 1610)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-21 22:45:15 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 148ms (Views: 21.7ms | ActiveRecord: 3.4ms | Allocations: 24288)
+
+
+Started GET "/articles/7" for 172.18.0.4 at 2024-03-21 22:45:17 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 13748)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-21 22:45:17 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 15ms (ActiveRecord: 0.3ms | Allocations: 1610)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-21 22:54:17 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 141ms (Views: 21.5ms | ActiveRecord: 3.4ms | Allocations: 24288)
+
+
+Started GET "/articles/7" for 172.18.0.4 at 2024-03-21 22:54:19 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 13749)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-21 22:54:19 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 15ms (ActiveRecord: 0.2ms | Allocations: 1610)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-22 16:23:22 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (3.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 166ms (Views: 22.8ms | ActiveRecord: 14.0ms | Allocations: 24299)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-22 16:23:26 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 39ms (ActiveRecord: 3.1ms | Allocations: 11606)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-22 16:34:47 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (9.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 57ms (Views: 2.0ms | ActiveRecord: 11.6ms | Allocations: 9534)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-22 16:34:49 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:69:in `set_author'
+Completed 400 Bad Request in 26ms (ActiveRecord: 0.5ms | Allocations: 5515)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:86:in `author_params'
+app/controllers/authors_controller.rb:73:in `check_key'
+Started GET "/articles" for 172.18.0.4 at 2024-03-22 16:35:48 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 128ms (Views: 20.0ms | ActiveRecord: 3.2ms | Allocations: 24288)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-22 16:35:51 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:69:in `set_author'
+Completed 400 Bad Request in 38ms (ActiveRecord: 2.4ms | Allocations: 11606)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:86:in `author_params'
+app/controllers/authors_controller.rb:73:in `check_key'
+Started GET "/authors/1" for 172.18.0.1 at 2024-03-22 16:37:15 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 39ms (ActiveRecord: 2.0ms | Allocations: 6256)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/author/1" for 172.18.0.1 at 2024-03-22 16:37:26 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/author/1"):
+  
+Started GET "/authors/1" for 172.18.0.1 at 2024-03-22 16:37:31 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.2ms | Allocations: 891)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/" for 127.0.0.1 at 2024-03-22 17:38:17 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (18.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (35.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 423ms (Views: 37.7ms | ActiveRecord: 43.7ms | Allocations: 24855)
+
+
+Started GET "/authors/1" for 127.0.0.1 at 2024-03-22 17:38:20 +0100
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (22.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 400 Bad Request in 125ms (ActiveRecord: 24.4ms | Allocations: 11751)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: author):
+  
+app/controllers/authors_controller.rb:84:in `author_params'
+app/controllers/authors_controller.rb:71:in `check_key'
+Started GET "/artocles/1" for 172.18.0.1 at 2024-03-22 16:39:31 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/artocles/1"):
+  
+Started GET "/articles/1" for 172.18.0.1 at 2024-03-22 16:39:34 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 52ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 8754)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:16:40 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (3.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 206ms (Views: 23.0ms | ActiveRecord: 56.5ms | Allocations: 24301)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-24 16:16:47 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (24.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 200 OK in 102ms (Views: 0.3ms | ActiveRecord: 25.7ms | Allocations: 11362)
+
+
+Started DELETE "/articles/4" for 172.18.0.4 at 2024-03-24 16:16:47 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:67:in `set_author'
+Filter chain halted as :set_author rendered or redirected
+Completed 400 Bad Request in 99ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4375)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:18:25 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 11ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1414)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-24 16:18:29 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 549)
+
+
+Started DELETE "/articles/4" for 172.18.0.4 at 2024-03-24 16:18:29 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:67:in `set_author'
+Filter chain halted as :set_author rendered or redirected
+Completed 400 Bad Request in 14ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1563)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:19:58 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 124ms (Views: 19.1ms | ActiveRecord: 3.1ms | Allocations: 24290)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-24 16:19:59 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 11361)
+
+
+Started DELETE "/articles/3" for 172.18.0.4 at 2024-03-24 16:20:00 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Can't verify CSRF token authenticity.
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:67:in `set_author'
+Filter chain halted as :set_author rendered or redirected
+Completed 400 Bad Request in 25ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 4374)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:22:24 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 137ms (Views: 20.5ms | ActiveRecord: 3.2ms | Allocations: 24298)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-24 16:22:26 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 11356)
+
+
+Started DELETE "/articles/3" for 172.18.0.4 at 2024-03-24 16:22:27 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"3"}
+Can't verify CSRF token authenticity.
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:67:in `set_author'
+Filter chain halted as :set_author rendered or redirected
+Completed 400 Bad Request in 26ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 4375)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:25:14 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 128ms (Views: 21.1ms | ActiveRecord: 3.2ms | Allocations: 24290)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-24 16:25:18 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 200 OK in 38ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 11365)
+
+
+Started DELETE "/articles/4?author_key=[FILTERED]" for 172.18.0.4 at 2024-03-24 16:25:18 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"author_key"=>"[FILTERED]", "id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = $1 LIMIT $2[0m  [["key", "5UTJJOJR7HE9PFC7SMNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:67:in `set_author'
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = $1 LIMIT $2[0m  [["key", "5UTJJOJR7HE9PFC7SMNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:68:in `set_author'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mComment Load (16.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 4]]
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mArticle Destroy (23.9ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (22.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+Completed 204 No Content in 211ms (Views: 0.1ms | ActiveRecord: 67.1ms | Allocations: 11415)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:25:26 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 10ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1355)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:26:49 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 136ms (Views: 20.5ms | ActiveRecord: 3.5ms | Allocations: 24230)
+
+
+Started GET "/articles/5" for 172.18.0.4 at 2024-03-24 16:26:54 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 73ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 13749)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-24 16:26:54 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1364)
+
+
+Started DELETE "/articles/5?author_key=[FILTERED]" for 172.18.0.4 at 2024-03-24 16:26:54 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"author_key"=>"[FILTERED]", "id"=>"5"}
+Can't verify CSRF token authenticity.
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = $1 LIMIT $2[0m  [["key", "5UTJJOJR7HE9PFC7SMNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:67:in `set_author'
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = $1 LIMIT $2[0m  [["key", "5UTJJOJR7HE9PFC7SMNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:68:in `set_author'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mArticle Destroy (0.4ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+Completed 204 No Content in 38ms (Views: 0.1ms | ActiveRecord: 5.6ms | Allocations: 7058)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:28:40 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 123ms (Views: 18.9ms | ActiveRecord: 3.2ms | Allocations: 24170)
+
+
+Started GET "/articles/6" for 172.18.0.4 at 2024-03-24 16:28:44 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 44ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 13749)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-24 16:28:44 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1364)
+
+
+Started DELETE "/articles/6?author_key=[FILTERED]" for 172.18.0.4 at 2024-03-24 16:28:44 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"author_key"=>"[FILTERED]", "id"=>"6"}
+Can't verify CSRF token authenticity.
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = $1 LIMIT $2[0m  [["key", "5UTJJOJR7HE9PFC7SMNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:67:in `set_author'
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = $1 LIMIT $2[0m  [["key", "5UTJJOJR7HE9PFC7SMNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:68:in `set_author'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 6]]
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mArticle Destroy (0.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+Completed 204 No Content in 37ms (Views: 0.1ms | ActiveRecord: 4.8ms | Allocations: 7057)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:52:13 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 120ms (Views: 20.7ms | ActiveRecord: 3.2ms | Allocations: 24110)
+
+
+Started GET "/articles/7" for 172.18.0.4 at 2024-03-24 16:52:30 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 48ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 13749)
+
+
+Started GET "/authors/7" for 172.18.0.4 at 2024-03-24 16:52:30 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 404 Not Found in 14ms (ActiveRecord: 0.2ms | Allocations: 1576)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=7):
+  
+app/controllers/authors_controller.rb:67:in `set_author'
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:53:27 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 147ms (Views: 23.9ms | ActiveRecord: 3.3ms | Allocations: 24109)
+
+
+Started GET "/articles/7" for 172.18.0.4 at 2024-03-24 16:53:34 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+Completed 200 OK in 46ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 13749)
+
+
+Started GET "/authors/1" for 172.18.0.4 at 2024-03-24 16:53:34 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:67:in `set_author'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1364)
+
+
+Started DELETE "/articles/7?author_key=[FILTERED]" for 172.18.0.4 at 2024-03-24 16:53:34 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"author_key"=>"[FILTERED]", "id"=>"7"}
+Can't verify CSRF token authenticity.
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:58:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:59:in `set_article'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = $1 LIMIT $2[0m  [["key", "5UTJJOJR7HE9PFC7SMNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:67:in `set_author'
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."key" = $1 LIMIT $2[0m  [["key", "5UTJJOJR7HE9PFC7SMNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:68:in `set_author'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 7]]
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mArticle Destroy (0.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (20.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/articles_controller.rb:47:in `destroy'
+Completed 204 No Content in 58ms (Views: 0.1ms | ActiveRecord: 23.8ms | Allocations: 7057)
+
+
+Started GET "/articles" for 172.18.0.4 at 2024-03-24 16:53:43 +0000
+Cannot render console from 172.18.0.4! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:32:in `index'
+Completed 200 OK in 11ms (Views: 2.0ms | ActiveRecord: 0.5ms | Allocations: 1173)
+
+

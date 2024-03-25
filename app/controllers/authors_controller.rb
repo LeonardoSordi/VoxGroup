@@ -2,8 +2,8 @@ class AuthorsController < ApplicationController
 
 
   before_action :set_author, only: %i[ show edit update destroy ]
-  before_action :check_key, only: [:show ]
-  before_action :check_key_is_valid, only: [:destroy, :update, :show]
+  before_action :check_key, only: []
+  before_action :check_key_is_valid, only: [:destroy, :update, ]
   def authenticate_author(author)
 
   end

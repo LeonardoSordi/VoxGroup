@@ -24,8 +24,9 @@ services:
     #command: ./bin/docker-entrypoint.sh
     ports:
       - '3000:3000'
-    restart: always
 
+
+    restart: always
     volumes:
       - .:/app #add local code to image in real time
       - gem_cache:/usr/local/bundle/gems
